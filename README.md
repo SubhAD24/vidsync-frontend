@@ -9,7 +9,7 @@ VidSync bridges the gap between complex command-line downloading tools and every
 Users can paste links from YouTube, Instagram, or Facebook, instantly preview the media, choose their desired format (Video or Audio), and track the download progress in real-time. This project demonstrates full-stack architecture, asynchronous data streaming, and robust API design.
 
 📸 Interface Preview
-()
+(preview.png)
 
 ✨ Key Features
 🌍 Smart Platform Detection: Automatically identifies and adapts UI for YouTube, Instagram, and Facebook links.
