@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- GLOBAL --- */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; padding: 0; }
+body {
+  background-color: #050505; color: #ededed; font-family: 'Inter', sans-serif;
+  display: flex; justify-content: center; align-items: center;
+  min-height: 100vh; min-height: 100dvh; overflow-x: hidden;
+  background-image: radial-gradient(circle at top center, #1a1a1a 0%, #000000 80%);
+  background-attachment: fixed;
+}
+
+/* --- ORBS (Bright Ambient) --- */
+.orb {
+  position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6; z-index: -1;
+  animation: floatOrb 10s infinite ease-in-out alternate; pointer-events: none;
+}
+.orb-1 { top: -10%; left: -10%; width: 300px; height: 300px; background: radial-gradient(circle, #3b82f6, transparent); }
+.orb-2 { bottom: -10%; right: -10%; width: 400px; height: 400px; background: radial-gradient(circle, #8b5cf6, transparent); animation-delay: -5s; }
+@keyframes floatOrb { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, 50px) scale(1.1); } }
+
+/* --- MAIN --- */
+.app-container { width: 100%; max-width: 500px; padding: 20px; position: relative; z-index: 10; display: flex; flex-direction: column; justify-content: center; }
+
+/* --- HEADER --- */
+.header { text-align: center; margin-bottom: 24px; }
+
+/* Brighter Brand Logo */
+.brand { 
+  font-size: 32px; font-weight: 800; letter-spacing: -1px; color: #fff; 
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.4); 
+  margin-bottom: 8px; cursor: default; 
+}
+.brand span { color: #ccc; transition: color 0.3s; } 
+.brand:hover span { color: #fff; }
+
+.brand-subtitle { font-size: 13px; font-weight: 500; color: #aaa; letter-spacing: 0.5px; max-width: 90%; margin: 0 auto; line-height: 1.5; }
+.brand-subtitle span { color: #fff; font-weight: 700; }
+
+/* --- CARD --- */
+.clean-card { background: #0a0a0a; border: 1px solid #222; border-radius: 24px; padding: 24px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); width: 100%; }
+
+/* --- INPUTS --- */
+.input-label { display: block; font-size: 11px; font-weight: 700; color: #888; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.input-wrapper { position: relative; width: 100%; }
+.clean-input { width: 100%; background: #111; border: 1px solid #333; border-radius: 12px; padding: 16px; padding-right: 70px; color: #fff; font-size: 14px; font-family: inherit; outline: none; transition: all 0.2s; }
+.clean-input:focus { border-color: #fff; background: #080808; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1); }
+.paste-btn { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #222; border: 1px solid #333; color: #fff; font-size: 10px; font-weight: 700; padding: 6px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; text-transform: uppercase; }
+.paste-btn:hover { background: #333; border-color: #555; }
+
+/* --- PREVIEW --- */
+.preview-container { margin-bottom: 24px; border-radius: 16px; overflow: hidden; border: 1px solid #333; background: #000; position: relative; width: 100%; display: flex; justify-content: center; align-items: center; min-height: 250px; }
+
+/* Containers for Big Preview */
+.yt-container { width: 100%; aspect-ratio: 16/9; background: #000; display: block; }
+.yt-container.shorts-mode { aspect-ratio: 9/16; }
+
+.preview-iframe { width: 100%; height: 100%; border: none; display: block; }
+.preview-iframe.vertical { aspect-ratio: unset; height: 480px; max-height: 60vh; }
+.preview-video, .preview-img { width: 100%; height: auto; max-height: 500px; object-fit: contain; display: block; }
+
+/* --- CONTROLS --- */
+.controls-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: #111; padding: 8px 16px; border-radius: 12px; border: 1px solid #222; }
+.toggle-label { font-size: 11px; font-weight: 700; color: #888; text-transform: uppercase; }
+.switch-container { display: flex; background: #000; border-radius: 8px; padding: 3px; border: 1px solid #333; cursor: pointer; }
+.switch-option { padding: 6px 12px; font-size: 10px; font-weight: 700; color: #555; border-radius: 6px; transition: all 0.3s; text-transform: uppercase; }
+.switch-option.active { color: #000; background: #fff; }
+.switch-container.audio-mode .switch-option.active { background: #d946ef; color: #fff; box-shadow: 0 0 15px rgba(217, 70, 239, 0.6); }
+
+/* --- DROPDOWN & BUTTON --- */
+.clean-select { width: 100%; padding: 14px; background: #111; border: 1px solid #333; color: #fff; border-radius: 12px; font-size: 14px; outline: none; margin-bottom: 20px; cursor: pointer; }
+.primary-btn { width: 100%; background: #fff; color: #000; font-weight: 700; font-size: 16px; padding: 16px; border-radius: 12px; border: none; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
+.primary-btn:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
+.primary-btn:disabled { background: #222; color: #555; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* --- PLATFORMS --- */
+.supported-platforms { margin-top: 32px; padding-top: 24px; border-top: 1px solid #222; text-align: center; }
+.platform-label { font-size: 11px; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; display: block; }
+.platform-grid { display: flex; justify-content: center; gap: 32px; }
+
+/* 100% Opacity for Icons */
+.platform-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: default; opacity: 1; transition: all 0.3s; }
+.platform-item:hover { transform: translateY(-5px); }
+.platform-icon { width: 28px; height: 28px; transition: transform 0.3s; }
+.yt { fill: #ff0000; filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.5)); }
+.ig { fill: #d62976; filter: drop-shadow(0 0 15px rgba(214, 41, 118, 0.5)); }
+.fb { fill: #1877f2; filter: drop-shadow(0 0 15px rgba(24, 119, 242, 0.5)); }
+.platform-name { font-size: 10px; font-weight: 600; color: #999; letter-spacing: 0.5px; }
+
+/* --- FOOTER --- */
+.footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid #222; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+/* Brighter Text */
+.footer-text { font-size: 12px; color: #ccc; } 
+.footer-links { display: flex; gap: 16px; }
+/* Brighter Links */
+.footer-link { font-size: 12px; color: #fff; text-decoration: none; font-weight: 600; opacity: 0.7; transition: opacity 0.3s ease; }
+.footer-link:hover { opacity: 1; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+.social-tag { background: #111; padding: 4px 8px; border-radius: 4px; font-size: 10px; color: #888; border: 1px solid #222; }
+
+/* --- STATUS WIDGET --- */
+.status-widget { position: fixed; bottom: 20px; right: 20px; background: rgba(10, 10, 10, 0.9); border: 1px solid #333; padding: 8px 12px; border-radius: 50px; display: flex; align-items: center; gap: 8px; font-size: 10px; color: #aaa; z-index: 100; backdrop-filter: blur(10px); }
+.status-dot { width: 6px; height: 6px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; animation: pulseDot 2s infinite; }
+@keyframes pulseDot { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+/* --- MOBILE SPECIFIC --- */
+@media (max-width: 600px) {
+  .app-container { padding: 16px; padding-bottom: 80px; max-width: 100%; }
+  .clean-card { padding: 20px 16px; border-radius: 20px; }
+  .brand { font-size: 28px; }
+  
+  /* Extra Bright Orbs for Mobile */
+  .orb {
+    opacity: 0.9 !important; 
+    filter: blur(90px) brightness(1.6) !important;
+  }
+
+  .preview-container {
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+    border: none;
+  }
+
+  .preview-iframe.vertical { height: 400px; }
+  
+  /* 🟢 MOVED STATUS WIDGET UP (50px from bottom) */
+  .status-widget { 
+    bottom: 100px; /* Moved up to clear mobile nav bars */
+    right: auto; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: auto; 
+    white-space: nowrap; 
+  }
+}
