@@ -1,73 +1,156 @@
-🎥 VidSync - Premium Media Downloader
-A sleek, high-performance full-stack web application that allows users to seamlessly download high-quality videos and extract audio from major social media platforms.
+🎥 VidSync – Premium Media Downloader
 
-🌍 View Live Demo (https://vidfetch.netlify.app/)
+A sleek, high-performance **full-stack web application** that allows users to seamlessly download high-quality videos and extract audio from major social media platforms.
 
-📖 Overview
-VidSync bridges the gap between complex command-line downloading tools and everyday users. By wrapping the powerful yt-dlp engine in a modern, glass-morphism React interface, VidSync provides a seamless downloading experience.
+🌍 **Live Demo:** https://vidfetch.netlify.app/
 
-Users can paste links from YouTube, Instagram, or Facebook, instantly preview the media, choose their desired format (Video or Audio), and track the download progress in real-time. This project demonstrates full-stack architecture, asynchronous data streaming, and robust API design.
+---
+Preview
+![Interface Preview](./home.png)
+## 📖 Overview
 
-📸 ![Interface Preview](./preview.png)
+**VidSync** bridges the gap between powerful command-line media tools and everyday users.
 
-✨ Key Features
-🌍 Smart Platform Detection: Automatically identifies and adapts UI for YouTube, Instagram, and Facebook links.
+By wrapping the robust **yt-dlp engine** inside a modern **React glass-morphism UI**, VidSync delivers a smooth, intuitive downloading experience.
 
-📺 Live Media Previews: Integrated embedded players allow users to preview videos before downloading.
+Users can:
 
-⚙️ Format Flexibility: Seamlessly toggle between high-resolution Video (MP4) and crisp Audio (MP3) extraction.
+- Paste links from **YouTube, Instagram, or Facebook**
+- Instantly preview the media
+- Select format (**MP4 Video / MP3 Audio**)
+- Track download progress in **real-time**
 
-📊 Real-Time Progress Tracking: Utilizes Server-Sent Events (SSE) to display live download percentages and status updates.
+This project demonstrates:
 
-🎨 Modern UI/UX: Features a clean, responsive "glass-morphism" design with animated status widgets.
+✔ Full-stack architecture  
+✔ Asynchronous task handling  
+✔ Server-Sent Events (SSE) streaming  
+✔ Process management with Node.js  
+✔ Clean UI/UX design  
 
-🛡️ Bot-Bypass Architecture: Backend dynamically spoofs User-Agents and utilizes specific platform clients (like iOS) to prevent throttling and API blocks.
+---
 
-🛠️ Technologies Used
-Frontend (Client)
-React.js – Component-based UI architecture.
+## ✨ Key Features
 
-CSS3 – Custom styling, responsive design, and CSS animations.
+### 🌍 Smart Platform Detection
+Automatically identifies supported platforms and adapts behavior accordingly.
 
-Axios – Handling asynchronous HTTP requests to the backend API.
+### 📺 Live Media Preview
+Embedded preview player before download.
 
-EventSource API – Consuming live data streams for the progress bar.
+### ⚙️ Flexible Format Selection
+Toggle between:
 
-Backend (Server)
-Node.js & Express.js – Robust server environment and API routing.
+- 🎬 **Video (MP4)**
+- 🎵 **Audio (MP3)**
 
-yt-dlp – The core command-line engine for fetching media metadata and downloading files.
+### 📊 Real-Time Progress Tracking
+Uses **Server-Sent Events (SSE)** for live updates:
 
-Child Process – Spawning and managing background download tasks securely.
+- Download percentage
+- Status messages
+- Finalization state
 
-🚀 Local Setup & Installation
-To run VidSync locally, you need to set up both the backend server and the frontend client. Make sure you have Node.js and yt-dlp installed on your machine.
+### 🎨 Modern UI/UX
+Clean glass-morphism design with animated feedback widgets.
 
-1. Backend Setup
-Open a terminal and navigate to your backend folder.
+### 🛡️ Bot-Bypass Optimizations
+Backend dynamically:
 
-Install dependencies:
+- Spoofs User-Agents
+- Uses alternate platform clients (e.g., iOS/Android)
+- Reduces throttling & extraction failures
 
-Bash
+---
+
+## 🛠️ Tech Stack
+
+### **Frontend (Client)**
+- **React.js** – Component-based UI
+- **CSS3** – Custom styling & animations
+- **Axios** – API communication
+- **EventSource API** – SSE streaming
+
+### **Backend (Server)**
+- **Node.js**
+- **Express.js**
+- **yt-dlp**
+- **Child Process API**
+
+---
+
+## 🚀 Local Setup & Installation
+
+### ✅ Prerequisites
+
+Ensure you have installed:
+
+- **Node.js** (v18+ recommended)
+- **yt-dlp**
+- **FFmpeg** (required for merging/re-encoding)
+
+Check installation:
+
+```bash
+node -v
+yt-dlp --version
+ffmpeg -version
+🔧 Backend Setup
+cd server
 npm install
-Start the Express server (usually runs on port 5000):
-
-Bash
 npm start
-2. Frontend Setup
-Open a new terminal window and navigate to your client folder:
 
-Bash
+Server typically runs on:
+
+http://localhost:5000
+🎨 Frontend Setup
 cd client
-Install dependencies:
-
-Bash
 npm install
-Start the React development server:
-
-Bash
 npm run dev
-(Or npm start depending on how you initialized your React app).
+
+(or npm start depending on your setup)
+
+Frontend runs on:
+
+http://localhost:5173 / 3000
+🔐 Environment Variables (Optional)
+
+Create a .env file inside server/ if needed:
+
+PORT=5000
+📡 API Endpoints
+Method	Endpoint	Description
+POST	/api/video/info	Fetch media metadata
+POST	/api/video/download	Start download job
+GET	/api/video/progress/:jobId	SSE progress stream
+GET	/api/video/file/:jobId	Download final file
+🧠 Architecture Highlights
+
+yt-dlp handles extraction & downloading
+
+Child processes isolate downloads
+
+In-memory job queue tracks progress
+
+SSE stream pushes live updates to UI
+
+Automatic cleanup system removes stale jobs/files
 
 ⚠️ Disclaimer
-This application is built for educational purposes and personal use. Users are strictly responsible for ensuring they have the right to download the media they request and must respect the copyright and Terms of Service of the respective platforms.
+
+VidSync is built strictly for educational and personal use.
+
+Users are responsible for:
+
+Respecting copyright laws
+
+Following platform Terms of Service
+
+Ensuring they have rights to download requested media
+
+This project does not encourage piracy.
+
+📬 Author
+
+Subhra Adhikary
+Full-Stack Developer
