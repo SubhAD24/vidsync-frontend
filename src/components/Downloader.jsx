@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 
-const API = "https://vidfetch-backend-production.up.railway.app/api";
+const API = "https://vidsync-backend-s1gm.onrender.com/api";
 
 export default function Downloader() {
   const [url, setUrl] = useState("");
